@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<style>
+
+.no-js div.ux-wizard-view-wrapper {
+	display: none;
+} 		
+		
+div.ux-wizard-view-wrapper { /*border: 1px magenta solid;*/
+	position: relative;
+	overflow: hidden;
+	width: 700px;
+	height: 135px;
+	margin-bottom: 10px;
+}
+
+div.ux-wizard {
+	position: absolute;
+	width: 9000px;
+}
+
+.ux-wizard ol {
+	position: relative;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+
+									/*border:1px green solid;*/
+}
+
+.ux-wizard ol li {
+	display: inline-block;
+	position: relative;
+											/*border: 1px red solid;*/
+	margin-left: 0px;
+	height: 100px;
+	width: 100px;
+}
+
+.ie7 .ux-wizard ol li {
+	display: inline;
+}
+
+.ux-wiz-item-wrap {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+							border: 1px solid #0000ff;
+}
+
+li.ux-wiz-select, li.ux-wizsub-select {
+	width: 200px !important;
+}
+
+.ux-wiz-scroll-left,.ux-wiz-scroll-right,
+.ux-wizsub-scroll-left, .ux-wizsub-scroll-right {
+	position: absolute;
+	top: 0px;
+							background: #00ffff;
+	height: 100%;
+	width: 10px;
+	z-index: 3;	
+}
+
+.ux-wiz-scroll-left a,.ux-wiz-scroll-right a,
+.ux-wizsub-scroll-left a, .ux-wizsub-scroll-right a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+}
+
+.ux-wiz-scroll-left, .ux-wizsub-scroll-left {
+	left: 0px;
+}
+.ux-wiz-scroll-right, .ux-wizsub-scroll-right {
+	right: 0px;
+}
+
+div.ux-wiz-item-wrap ol {
+	display: none;
+}
+div.ux-wiz-item-wrap ol li {
+	display: none;
+}
+
+li.ux-wiz-select div.ux-wiz-item-wrap {
+	overflow: visible;
+}
+
+div.ux-wizard-sublist {
+	display: block;
+	position: absolute;
+	top: 75px; left:-200px;
+	text-align: left;
+	width: 600px;
+	border: 1px solid red;
+	z-index: 1;	
+}
+div.ux-wizard-subview-wrapper {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	text-align: left;
+	width:100%;
+	height: 55px;
+}
+div.ux-wizard-sub {
+	position: absolute;
+	width: 9000px;
+}
+
+div.ux-wizard-sublist div.ux-wizard-subview-wrapper div.ux-wizard-sub ol {
+	position: relative;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	border: green;
+}
+div.ux-wizard-sublist div.ux-wizard-subview-wrapper div.ux-wizard-sub ol li {
+	display: inline-block;
+	position: relative;
+	margin-left: 0px;
+	height: 50px;
+	width: 100px;
+	text-align:center;
+	
+								border: solid 1px #00ff00;
+}
+.ie7 div.ux-wizard-sublist div.ux-wizard-subview-wrapper div.ux-wizard-sub ol li {
+	display: inline;
+}
+
+</style>
+
+<body class=" " >
+
+
+	
+
+<div class="ux-wizard-view-wrapper">
+	<div class="ux-wizard">
+	<ol>
+		<li>My Personal Information
+			<ol>
+				<li>My Profile</li>
+				<li>My Address</li>
+				<li>My Contact Information</li>
+				<li>My Citizenship Information</li>
+			</ol>
+		</li>
+		<li>Preliminary Questions
+			<ol>
+				<li>Backdating</li>
+				<li>Other State Claims</li>
+				<li>Federal/Military Employment</li>
+				<li>Out of State Employment</li>
+			</ol>
+		</li>
+		<li >Demographics</li>
+		<li class="ux-wiz-select">Employment
+			<ol>
+				<li>Federal</li>
+				<li>Military</li>
+				<li class="ux-wizsub-select">Out of State</li>
+				<li>New York</li>
+				<li>Separating Employer</li>
+			</ol>
+		</li>
+		<li >Benefits</li>
+		<li >Re-Employment</li>
+		<li >Eligibility</li>
+		<li >Preferences</li>
+		<li >Completion</li>
+
+	</ol>
+	</div>
+</div>
+
+
+<div>
+	<ol>
+		<li>My Personal Information
+			<ol>
+				<li>My Profile</li>
+				<li>My Address</li>
+				<li>My Contact Information</li>
+				<li>My Citizenship Information</li>
+			</ol>
+		</li>
+		<li >Preliminary Questions
+			<ol>
+				<li>Backdating</li>
+				<li>Other State Claims</li>
+				<li>Federal/Military Employment</li>
+				<li>Out of State Employment</li>
+			</ol>
+		</li>
+		<li >Demographics</li>
+		<li>Employment
+			<ol>
+				<li>Federal</li>
+				<li>Military</li>
+				<li>Out of State</li>
+				<li>New York</li>
+				<li>Separating Employer</li>
+			</ol>
+		</li>
+		<li >Benefits</li>
+		<li >Re-Employment</li>
+		<li >Eligibility</li>
+		<li >Preferences</li>
+		<li >Completion</li>
+
+	</ol>
+</div>
+
+		
+
+			
+			
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>					
+
+	
+
+
+
+<script>
+$(document).ready( function() {
+	
+	if ( $('div.ux-wizard-view-wrapper').length ==1 ) {
+		
+		// variables
+		var kLastItemOffset, kEndOfList, kFirstItemEndOffset, kViewWidth, kCenter;
+		var ksLastItemOffset, ksEndOfList, ksFirstItemEndOffset, ksViewWidth, ksCenter;
+		
+		var wiz_sublist;
+		
+		
+		
+		// functions
+		function wizScrollTo ( offset ) {
+			//alert( offset );
+			$('.ux-wizard').animate({'left' : offset },{queue:false, duration:500, complete:function(){ }});
+		}
+		function wizCalculateLeftOffset( item ) {
+			
+			var itemWidth = item.outerWidth();
+			var pos = item.position().left;
+			var offset = (pos + (itemWidth/2) - kCenter);
+
+			return 0 - offset;
+		}
+		
+		function wiz_viewPortInRange (item) {
+			var itemOffset = wizCalculateLeftOffset ( item );
+			
+				//alert( 'end , offset = ' + (kEndOfList - kViewWidth) + ', '+  (0-itemOffset)  );
+			if ( (kEndOfList - kViewWidth) < 0 - itemOffset ) {
+				return -1;
+			} else if ( itemOffset >0 && ((0 - itemOffset)< kFirstItemEndOffset ) ) {
+				return 1;
+			}
+			else {
+				return 0;
+			}
+		}
+		
+		function wiz_scrollfirst() {
+			var targetOffset = 0;
+			var target = null;
+			if ( $( "li.ux-wiz-select").length == 1) {
+				target = $( "li.ux-wiz-select");
+			} else if ( $( "li.ux-wiz-select").length > 1) {
+				target = $( "li.ux-wiz-select" ).first();
+			} else {
+				target = $("li.ux-wiz-item-first");
+			}
+			target.addClass('ux-wiz-view-item');
+				
+					
+			//if (wiz_viewPortInRange(target) > 0) {
+			//	targetOffset = 50;					
+			//}else if (wiz_viewPortInRange(target) < 0) {
+			//	targetOffset = (kFirstItemEndOffset - kViewWidth) - 150;
+			//}
+			//else {
+				targetOffset = wizCalculateLeftOffset(target);
+			//}
+			//wizScrollTo (  targetOffset );
+			$('.ux-wizard').css( 'left', targetOffset+'px');
+		}		
+		
+		function wizsubScrollTo ( offset ) {
+			//alert( offset );
+			$('.ux-wizard-sub').animate({'left' : offset },{queue:false, duration:500, complete:function(){ }});
+		}
+		function wizsubCalculateLeftOffset( item ) {
+			
+			var itemWidth = item.outerWidth();
+			var pos = item.position().left;
+			var offset = (pos + (itemWidth/2) - ksCenter);
+
+			return 0 - offset;
+		}
+		function wiz_subscrollfirst() {
+			var targetOffset = 0;
+			var target = null;
+			if ( $( "li.ux-wizsub-select").length == 1) {
+				target = $( "li.ux-wizsub-select");
+			} else if ( $( "li.ux-wizsub-select").length > 1) {
+				target = $( "li.ux-wizsub-select" ).first();
+			} else {
+				target = $("li.ux-wizsub-item-first");
+			}
+			target.addClass('ux-wizsub-view-item');
+				targetOffset = wizsubCalculateLeftOffset(target);
+			$('.ux-wizard-sub').css( 'left', targetOffset+'px');
+			
+		}
+		function wiz_subconstruct( subList ){
+			subList.children("li").each( function(i){
+					if ( $(this).prev('li').length ==0) {
+						$(this).addClass( 'ux-wizsub-item-first' );
+					}
+					if ($(this).next('li').length ==0) {
+						$(this).addClass( 'ux-wizsub-item-last' );
+					}
+					$(this).attr('id','ux-wizsub-item'+i);
+					$(this).addClass("ux-wizsub-list-item");
+					//$(this).append( "|"+$(this).position().left );
+					$(this).wrapInner( '<div class="ux-wizsub-item-wrap" />' );
+				});
+			ksLastItemOffset = $('li.ux-wizsub-item-last').position().left;
+				ksEndOfList = ($('li.ux-wizsub-item-last').position().left + $('li.ux-wizsub-item-last').outerWidth());
+				ksFirstItemEndOffset = $('li.ux-wizsub-item-first').position().left + $('li.ux-wizsub-item-first').outerWidth();
+				ksViewWidth = $('.ux-wizard-subview-wrapper').innerWidth();
+				ksCenter = ksViewWidth/2;
+				if (ksEndOfList > ksViewWidth) {
+					$('<div><a>&lt;</a></div>').appendTo('div.ux-wizard-subview-wrapper').addClass('ux-wizsub-scroll-left');
+					$('<div><a>&gt;</a></div>').appendTo('div.ux-wizard-subview-wrapper').addClass('ux-wizsub-scroll-right');
+									
+					wiz_subscrollfirst();
+				}
+		};
+		
+
+		// construction
+		$("div.ux-wizard").children("ol").children("li").each( function(i){
+			if ( $(this).prev('li').length ==0) {
+				$(this).addClass( 'ux-wiz-item-first' );
+			}
+			if ($(this).next('li').length ==0) {
+				$(this).addClass( 'ux-wiz-item-last' );
+			}
+			$(this).attr('id','ux-wiz-item'+i);
+			$(this).addClass("ux-wiz-list-item");
+			//$(this).append( "|"+$(this).position().left );
+			$(this).wrapInner( '<div class="ux-wiz-item-wrap" />' );
+			
+			if ( ($(this).hasClass( 'ux-wiz-select')) && ($(this).find('ol').length == 1) ) {
+				// sublist, setup
+				wiz_sublist = $(this).find('ol');
+			};
+		});
+		
+		kLastItemOffset = $('li.ux-wiz-item-last').position().left;
+		kEndOfList = ($('li.ux-wiz-item-last').position().left + $('li.ux-wiz-item-last').outerWidth());
+		kFirstItemEndOffset = $('li.ux-wiz-item-first').position().left + $('li.ux-wiz-item-first').outerWidth();
+		kViewWidth = $('.ux-wizard-view-wrapper').innerWidth();
+		kCenter = kViewWidth/2;
+		if (kEndOfList > kViewWidth) {
+			$('<div><a>&lt;</a></div>').appendTo('div.ux-wizard-view-wrapper').addClass('ux-wiz-scroll-left');
+			$('<div><a>&gt;</a></div>').appendTo('div.ux-wizard-view-wrapper').addClass('ux-wiz-scroll-right');
+			
+			wiz_scrollfirst();
+		}
+		
+		if (wiz_sublist.length==1) {
+			wiz_sublist.wrap( '<div class="ux-wizard-sublist"></div>');
+			wiz_sublist.wrap( '<div class="ux-wizard-subview-wrapper"></div>');
+			wiz_sublist.wrap( '<div class="ux-wizard-sub"></div>');	
+			wiz_subconstruct( wiz_sublist );
+		}
+		// end construction
+		
+		// hooks
+		$('.ux-wiz-scroll-left').click( function(i) {
+			var itemFrom = $('li.ux-wiz-view-item');
+			if (itemFrom.prev('li.ux-wiz-list-item').length == 1) {
+				var itemTo = itemFrom.prev('.ux-wiz-list-item');
+				var targetOffset = 0;
+				
+				//if (wiz_viewPortInRange(itemTo) > 0) {
+				//	targetOffset = 25;					
+				//}else {
+					targetOffset = wizCalculateLeftOffset( itemTo );
+					itemFrom.removeClass( 'ux-wiz-view-item' );
+					itemTo.addClass( 'ux-wiz-view-item' );
+				//}
+				wizScrollTo( targetOffset );
+	  		}
+		  	
+		});
+		$('.ux-wiz-scroll-right').click( function(i) {
+			var itemFrom = $('li.ux-wiz-view-item');
+			if (itemFrom.next('li.ux-wiz-list-item').length == 1) {
+				var itemTo = itemFrom.next('.ux-wiz-list-item');
+				var targetOffset = 0;
+				
+				//if (wiz_viewPortInRange(itemTo) < 0) {
+				//	targetOffset = (kFirstItemEndOffset - kViewWidth) - 100;
+				//}else {
+					targetOffset = wizCalculateLeftOffset( itemTo );
+					itemFrom.removeClass( 'ux-wiz-view-item' );
+					itemTo.addClass( 'ux-wiz-view-item' );
+				//}
+				wizScrollTo( targetOffset );
+			}
+		});
+		$('.ux-wizsub-scroll-left').click( function(i) {
+			
+			var itemFrom = $('li.ux-wizsub-view-item');
+			if (itemFrom.prev('li.ux-wizsub-list-item').length == 1) {
+				var itemTo = itemFrom.prev('.ux-wizsub-list-item');
+				var targetOffset = 0;
+					targetOffset = wizsubCalculateLeftOffset( itemTo );
+					itemFrom.removeClass( 'ux-wizsub-view-item' );
+					itemTo.addClass( 'ux-wizsub-view-item' );
+				wizsubScrollTo( targetOffset );
+	  		}
+		  	
+		});
+		$('.ux-wizsub-scroll-right').click( function(i) {
+			var itemFrom = $('li.ux-wizsub-view-item');
+			if (itemFrom.next('li.ux-wizsub-list-item').length == 1) {
+				var itemTo = itemFrom.next('.ux-wizsub-list-item');
+				var targetOffset = 0;
+					targetOffset = wizsubCalculateLeftOffset( itemTo );
+					itemFrom.removeClass( 'ux-wizsub-view-item' );
+					itemTo.addClass( 'ux-wizsub-view-item' );
+				wizsubScrollTo( targetOffset );
+			}
+		});
+		
+		
+		
+	};
+	
+
+	
+	
+});
+
+</script>
+
+
+	
+</body>
+
+
+
+</html>
